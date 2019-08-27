@@ -1,5 +1,9 @@
-import { CountryAdjectives } from './countries.mjs'
-import { Nouns } from './nouns.mjs'
+import {
+    CountryAdjectives
+} from './countries.mjs'
+import {
+    Nouns
+} from './nouns.mjs'
 
 const pre = [
     CountryAdjectives,
@@ -50,6 +54,9 @@ function manyFromLists(lists, min, max) {
 }
 
 export function randomGenre() {
-
-    return manyFromLists(pre, 1, 3).join(' ') + ' ' + randomFromList(Nouns) + ' ' + manyFromLists(post, 1, 1).join(' ')
+    return (
+        manyFromLists(pre, 1, 3).join(' ') + ' ' +
+        randomFromList(Nouns) + ' ' +
+        manyFromLists(post, 1, 1).join(' ')
+    ).replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1))
 }

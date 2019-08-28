@@ -2,9 +2,12 @@ package main
 
 import (
 	"compress/bzip2"
+	"encoding/json"
 	"encoding/xml"
 	"fmt"
+	"io"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -31,6 +34,18 @@ func main() {
 
 	decoder := xml.NewDecoder(bzip2.NewReader(r.Body))
 
+	nounFile, err := os.OpenFile("nouns.mjs", os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0777)
+	check(err)
+	adjectiveFile, err := os.OpenFile("adjectives.mjs", os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0777)
+	check(err)
+
+	firstNoun := true
+	firstAdjective := true
+	_, err = fmt.Fprintf(nounFile, "export const Noun = [\n")
+	check(err)
+	_, err = fmt.Fprintf(adjectiveFile, "export const Adjective = [\n")
+	check(err)
+
 	for {
 		t, _ := decoder.Token()
 		if t == nil {
@@ -44,18 +59,37 @@ func main() {
 				var p Page
 				// decode a whole chunk of following XML into the
 				// variable p which is a Page (se above)
-				decoder.DecodeElement(&p, &se)
+				check(decoder.DecodeElement(&p, &se))
 
 				if strings.Contains(p.Text, "==English==") {
 
 					if strings.Contains(p.Text, "====Noun====") {
-						fmt.Println(p.Title)
+						writeReccord(nounFile, p.Title, firstNoun)
+						firstNoun = false
+					} else if strings.Contains(p.Text, "====Adjective====") {
+						writeReccord(adjectiveFile, p.Title, firstAdjective)
+						firstAdjective = false
 					}
-					//  else if strings.Contains(p.Text, "====Verb====") {
-					// 	fmt.Println(p.Title)
-					// }
 				}
 			}
 		}
 	}
+
+	_, err = fmt.Fprintf(nounFile, "]\n")
+	check(err)
+	_, err = fmt.Fprintf(adjectiveFile, "]\n")
+	check(err)
+}
+
+func writeReccord(file io.Writer, word string, isFirst bool) {
+	b, err := json.Marshal(word)
+	check(err)
+
+	if !isFirst {
+		_, err = fmt.Fprintf(file, ",\n")
+		check(err)
+	}
+
+	_, err = fmt.Fprintf(file, "    %s", b)
+	check(err)
 }

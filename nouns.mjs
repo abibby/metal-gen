@@ -1,4 +1,4 @@
-export const Nouns = [
+export const Noun = [
     "portmanteau",
     "cat",
     "word",
@@ -5307,7 +5307,7 @@ export const Nouns = [
     "patter",
     "hypothecation",
     "gelada",
-    "M&M",
+    "M\u0026M",
     "uncial",
     "bubby",
     "culm",
@@ -7306,7 +7306,7 @@ export const Nouns = [
     "pandy",
     "muzzy",
     "glazen",
-    "D&C",
+    "D\u0026C",
     "sardel",
     "granado",
     "morada",
@@ -8126,7 +8126,7 @@ export const Nouns = [
     "jeel",
     "hilal",
     "cons cell",
-    "T&A",
+    "T\u0026A",
     "kickup",
     "sithe",
     "king skin",
@@ -8657,7 +8657,7 @@ export const Nouns = [
     "TERF",
     "phan",
     "householding",
-    "K&R",
+    "K\u0026R",
     "dahu",
     "Mx",
     "prereader",
@@ -9177,5 +9177,4 @@ export const Nouns = [
     "pirateship",
     "procreationist",
     "Fredo",
-    "ringful"
-]
+    "ringful"]

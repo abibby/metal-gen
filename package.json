@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "Metal Genre Generator",
     "scripts": {
-        "serve": "http-server ."
+        "serve": "http-server .",
+        "word-gen": "go run ./word-gen/main.go"
     },
     "author": "Adam Bibby",
     "license": "MIT",

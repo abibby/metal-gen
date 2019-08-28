@@ -4,6 +4,9 @@ import {
 import {
     Nouns
 } from './nouns.mjs'
+import {
+    Adjective
+} from './adjectives.mjs'
 
 const pre = [
     CountryAdjectives,
@@ -28,11 +31,13 @@ const pre = [
         'Stoner',
         'Symphonic',
         'Thrash',
-    ]
+    ],
 ]
-
+const mid = [
+    Adjective,
+]
 const post = [
-    ['metal', 'core']
+    ['metal', 'core'],
 ]
 
 function rand(min, max) {
@@ -56,6 +61,7 @@ function manyFromLists(lists, min, max) {
 export function randomGenre() {
     return (
         manyFromLists(pre, 1, 3).join(' ') + ' ' +
+        manyFromLists(mid, 0, 1).join(' ') + ' ' +
         randomFromList(Nouns) + ' ' +
         manyFromLists(post, 1, 1).join(' ')
     ).replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1))

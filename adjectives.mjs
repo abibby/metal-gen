@@ -1,4 +1,4 @@
-export const Adjective = [
+export const Adjectives = [
     "about",
     "accessive",
     "libre",
@@ -912,4 +912,5 @@ export const Adjective = [
     "fetchy",
     "unpresent",
     "leechy",
-    "stumpifying"]
+    "stumpifying"
+]

@@ -41,9 +41,9 @@ func main() {
 
 	firstNoun := true
 	firstAdjective := true
-	_, err = fmt.Fprintf(nounFile, "export const Noun = [\n")
+	_, err = fmt.Fprintf(nounFile, "export const Nouns = [\n")
 	check(err)
-	_, err = fmt.Fprintf(adjectiveFile, "export const Adjective = [\n")
+	_, err = fmt.Fprintf(adjectiveFile, "export const Adjectives = [\n")
 	check(err)
 
 	for {

@@ -1,4 +1,4 @@
-export const Noun = [
+export const Nouns = [
     "portmanteau",
     "cat",
     "word",
@@ -9177,4 +9177,5 @@ export const Noun = [
     "pirateship",
     "procreationist",
     "Fredo",
-    "ringful"]
+    "ringful"
+]

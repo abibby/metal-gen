@@ -60,7 +60,7 @@ function manyFromLists(lists, min, max) {
 
 export function randomGenre() {
     return (
-        manyFromLists(pre, 1, 3).join(' ') + ' ' +
+        manyFromLists(pre, 1, 2).join(' ') + ' ' +
         manyFromLists(mid, 0, 1).join(' ') + ' ' +
         randomFromList(Nouns) + ' ' +
         manyFromLists(post, 1, 1).join(' ')

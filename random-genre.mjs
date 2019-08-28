@@ -5,7 +5,7 @@ import {
     Nouns
 } from './nouns.mjs'
 import {
-    Adjective
+    Adjectives
 } from './adjectives.mjs'
 
 const pre = [
@@ -34,7 +34,7 @@ const pre = [
     ],
 ]
 const mid = [
-    Adjective,
+    Adjectives,
 ]
 const post = [
     ['metal', 'core'],

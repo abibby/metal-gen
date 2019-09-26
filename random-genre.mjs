@@ -25,7 +25,6 @@ const pre = [
         'Folk',
         'Glam',
         'Gothic',
-        'Grindcore',
         'Groove',
         'Heavy',
         'Industrial',

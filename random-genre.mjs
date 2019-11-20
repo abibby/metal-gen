@@ -8,8 +8,10 @@ import {
     Adjectives
 } from './adjectives.mjs'
 
-const pre = [
+const pre1 = [
     CountryAdjectives,
+]
+const pre2 = [
     [
         'Alternative',
         'Avant-garde',
@@ -17,7 +19,6 @@ const pre = [
         'Christian',
         'Crust',
         'Death',
-        'Deathcore',
         'Doom',
         'Electronic',
         'Experimental',
@@ -45,6 +46,8 @@ const pre = [
     ],
 ]
 const mid = [
+    [],
+    [],
     Adjectives,
 ]
 const post = [
@@ -71,7 +74,8 @@ function manyFromLists(lists, min, max) {
 
 export function randomGenre() {
     return (
-        manyFromLists(pre, 1, 2).join(' ') + ' ' +
+        manyFromLists(pre1, 0, 1).join(' ') + ' ' +
+        manyFromLists(pre2, 0, 1).join(' ') + ' ' +
         manyFromLists(mid, 0, 1).join(' ') + ' ' +
         randomFromList(Nouns) + ' ' +
         manyFromLists(post, 1, 1).join(' ')

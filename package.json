@@ -9,6 +9,6 @@
     "author": "Adam Bibby",
     "license": "MIT",
     "devDependencies": {
-        "http-server": "^0.11.2"
+        "http-server": "^14.1.1"
     }
 }
